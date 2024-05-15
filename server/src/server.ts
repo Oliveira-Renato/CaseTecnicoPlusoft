@@ -2,7 +2,7 @@ import fastify from "fastify";
 import { PrismaClient } from "@prisma/client";
 
 const app = fastify();
-const prisma = PrismaClient();
+// const prisma = PrismaClient();
 
 app.get("/hello", () => {
   return 'Hello World!'
