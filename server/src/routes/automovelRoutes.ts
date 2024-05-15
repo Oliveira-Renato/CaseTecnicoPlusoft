@@ -21,19 +21,7 @@ export async function automovelRoutes(app: FastifyInstance) {
   app.get('/automoveis', AutomovelController.listarAutomoveis);
 
   // Rota POST para criar um novo automóvel
-  app.post("/automoveis", async (req, res) => {
-    try {
-      const { marca, modelo, ano, descricaoPessoal, imageUrl } = req.body as AutomovelRequest;
-      const novoAutomovel = await prisma.automovel.create({
-        data: { marca, modelo, ano, descricaoPessoal, imageUrl },
-      });
-
-      // Retorna o status 201 para criação bem-sucedida
-      res.status(201).send(novoAutomovel);
-    } catch (error) {
-      res.status(500).send({ error: "Erro ao criar automóvel" });
-    }
-  });
+  app.post("/automoveis", AutomovelController.cadastrarAutomovel);
 
   // // Rota PUT para atualizar um automóvel existente
   // app.put("/automoveis/:id", async (req, res) => {

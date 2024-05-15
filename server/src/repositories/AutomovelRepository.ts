@@ -1,4 +1,5 @@
 import { prisma } from "../lib/prisma";
+import { AutomovelRequest, ParamsRequest } from "../types/types";
 
 async function listarTodos() {
   try {
@@ -9,4 +10,16 @@ async function listarTodos() {
   }
 }
 
-export default { listarTodos };
+async function cadastrarAutomovel(data: AutomovelRequest) {
+  try {
+    const automovel = await prisma.automovel.create({data})
+    return automovel;
+  } catch (error) {
+    throw new Error('Não foi possível cadastrar o automóvel');
+  }
+}
+
+export default { 
+  listarTodos,
+  cadastrarAutomovel
+};
