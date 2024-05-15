@@ -1,1 +1,1 @@
-"# CaseTecnicoPlusoft" 
+# CaseTecnicoPlusoft
