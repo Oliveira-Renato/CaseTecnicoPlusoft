@@ -1,12 +1,9 @@
 import fastify from "fastify";
-import { PrismaClient } from "@prisma/client";
+import { automovelRoutes } from "./routes/automovel.route";
 
 const app = fastify();
-// const prisma = PrismaClient();
 
-app.get("/hello", () => {
-  return 'Hello World!'
-})
+app.register(automovelRoutes);
 
 app.listen({
   port: 3333
