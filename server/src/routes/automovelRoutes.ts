@@ -19,16 +19,6 @@ interface ParamsRequest {
 export async function automovelRoutes(app: FastifyInstance) {
   // Rota GET para listar todos os automóveis
   app.get('/automoveis', AutomovelController.listarAutomoveis);
-  
-  // app.get("/automoveis", async (req, res) => {
-  //   try {
-  //     const automoveis = await prisma.automovel.findMany();
-  //     res.send(automoveis);
-  //   } catch (error) {
-  //     // retorna um erro HTTP apropriado
-  //     res.status(500).send({ error: "Erro ao buscar automóveis" });
-  //   }
-  // });
 
   // Rota POST para criar um novo automóvel
   // app.post("/automoveis", async (req, res) => {
