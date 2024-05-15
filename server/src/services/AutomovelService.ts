@@ -1,4 +1,5 @@
-import AutomovelRepository from '../repositories/AutomovelRepository';
+import AutomovelRepository from "../repositories/AutomovelRepository";
+import { AutomovelRequest, ParamsRequest } from "../types/types";
 
 async function listarTodos() {
   try {
@@ -9,4 +10,16 @@ async function listarTodos() {
   }
 }
 
-export default { listarTodos };
+async function cadastrarAutomovel(data: AutomovelRequest) {
+  try {
+    console.log("POST SERVICES /automoveis");
+    return await AutomovelRepository.cadastrarAutomovel(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export default { 
+  listarTodos,
+  cadastrarAutomovel 
+};
