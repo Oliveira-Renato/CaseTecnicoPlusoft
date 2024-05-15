@@ -1,5 +1,5 @@
 import fastify from "fastify";
-import { automovelRoutes } from "./routes/automovel.route";
+import { automovelRoutes } from "./routes/automovelRoutes";
 
 const app = fastify();
 
