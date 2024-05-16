@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  transition: smooth;
+}
+
+section {
+  position: relative;
+  z-index: 0;
+}
+
+.main_bg {
+  background: #000000;
+}
+.second_bg {
+  background: #111;
+}
+.third_bg {
+  background: #212121;
+}
+.gray-gradient {
+  background: linear-gradient(to bottom, #000000, #111, #212121);
+}
+.red_100 {
+  color: #d00000;
+}
+.red_200 {
+  color: #9d0208;
+}
+.red_300 {
+  color: #6a040f;
+}
+
+.red_trans {
+  background: rgba(208, 0, 0, 0.8);
+}
+
+.red_gradient {
+  background: linear-gradient(to bottom, #d00000, #9d0208, #6a040f);
+}
+.green-pink-gradient {
+  background: "#f5af19";
+  background: linear-gradient(90.13deg, #f5af19 1.9%, #ff5733 97.5%);
+  background: -webkit-linear-gradient(-90.13deg, #f5af19 1.9%, #ff5733 97.5%);
+}
+
+.paddingX {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+
+  @media (min-width: 640px) {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+.paddingY {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+
+  @media (min-width: 640px) {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+.padding {
+  padding-top: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1rem;
+  padding-left: 1.5rem;
+
+  @media (min-width: 640px) {
+    padding-top: 4rem;
+    padding-right: 4rem;
+    padding-bottom: 4rem;
+    padding-left: 4rem;
+  }
+}
+
+.heroHeadText {
+  font-weight: 900;
+  color: white;
+  font-size: 80px;
+  line-height: 98px;
+  margin-top: 2rem;
+
+  @media (max-width: 1023px) {
+    font-size: 60px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 50px;
+  }
+
+  @media (max-width: 479px) {
+    font-size: 40px;
+  }
+}
+
+.heroSubText {
+  color: #dfdfdf;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 40px;
+
+  @media (max-width: 1023px) {
+    font-size: 26px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 479px) {
+    font-size: 16px;
+  }
+}
+
+.sectionHeadText {
+  color: #9d0208;
+  font-weight: 900;
+  font-size: 60px;
+
+  @media (max-width: 1023px) {
+    font-size: 50px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 40px;
+  }
+}
+
+.sectionSubText {
+  text-transform: uppercase;
+  color: #dfdfdf;
+  letter-spacing: 0.1em;
+
+  @media (max-width: 767px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 479px) {
+    font-size: 14px;
+  }
+}
