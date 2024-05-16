@@ -30,8 +30,22 @@ async function atualizarAutomovel(id: number , data: AutomovelRequest) {
     throw new Error("Não foi possível atualizar o automóvel");
   }
 }
+
+async function deleteAutomovel(id: number) {
+  try {
+    await prisma.automovel.delete({
+      where: { id },
+    });
+
+    return "Automovel deletado com sucesso!"
+  } catch (error) {
+    throw new Error("Não foi possível deletar o automóvel");
+  }
+}
+
 export default { 
   listarTodos,
   cadastrarAutomovel,
-  atualizarAutomovel
+  atualizarAutomovel,
+  deleteAutomovel
 };

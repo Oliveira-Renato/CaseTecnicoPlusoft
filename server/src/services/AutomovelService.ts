@@ -28,8 +28,17 @@ async function atualizarAutomovel(id: number, data: AutomovelRequest) {
   }
 }
 
+async function deleteAutomovel(id: number) {
+  try {
+    return await AutomovelRepository.deleteAutomovel(id);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export default { 
   listarTodos,
   cadastrarAutomovel,
-  atualizarAutomovel
+  atualizarAutomovel,
+  deleteAutomovel
 };

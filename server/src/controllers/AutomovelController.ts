@@ -2,11 +2,9 @@ import AutomovelService from "../services/AutomovelService";
 import { FastifyRequest, FastifyReply } from "fastify";
 import { AutomovelRequest, ParamsRequest } from "../types/types";
 
-async function listarAutomoveis(req: FastifyRequest, res: FastifyReply) {
+async function listarAutomoveis(res: FastifyReply) {
   try {
-    console.log("GET /automoveis");
     const automoveis = await AutomovelService.listarTodos();
-
     res.send(automoveis);
   } catch (error) {
     // Enviar uma resposta de erro 
@@ -16,7 +14,6 @@ async function listarAutomoveis(req: FastifyRequest, res: FastifyReply) {
 
 async function cadastrarAutomovel(req: FastifyRequest, res: FastifyReply) {
   try {
-    console.log("POST /automoveis");
     // Extrai os dados do corpo da requisição e tipa com a interface AutomovelRequest
     const data = req.body as AutomovelRequest;
     // Chama o serviço para cadastrar o novo automóvel e passa os dados recebidos
@@ -31,7 +28,6 @@ async function cadastrarAutomovel(req: FastifyRequest, res: FastifyReply) {
 
 async function atualizarAutomovel(req: FastifyRequest, res: FastifyReply) {
   try {
-    console.log("PUT /automoveis");
     // Extrai os dados do corpo da requisição e tipa com a interface AutomovelRequest
     // Extrai o ID e os dados do corpo da requisição
     const { id } = req.params as ParamsRequest;
@@ -48,8 +44,24 @@ async function atualizarAutomovel(req: FastifyRequest, res: FastifyReply) {
   }
 }
 
+async function deleteAutomovel(req: FastifyRequest, res: FastifyReply) {
+  try {
+    // Extrai os dados do corpo da requisição e tipa com a interface AutomovelRequest
+    // Extrai o ID e os dados do corpo da requisição
+    const { id } = req.params as ParamsRequest;
+    // Chama o serviço para deletar o automóvel e passa o ID e os dados recebidos
+    const automovelAtualizado = await AutomovelService.deleteAutomovel(Number(id));
+
+    res.send(automovelAtualizado);
+  } catch (error) {
+    // Resposta de erro com status 500
+    res.status(500).send({ error: 'Erro interno do servidor' });
+  }
+}
+
 export default { 
   listarAutomoveis,
   cadastrarAutomovel,
-  atualizarAutomovel
+  atualizarAutomovel,
+  deleteAutomovel
 };
