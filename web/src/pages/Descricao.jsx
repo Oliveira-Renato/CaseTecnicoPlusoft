@@ -22,10 +22,6 @@ export default function Descricao() {
     }
   };
 
-  const handleEditClick = () => {
-
-  };
-
   const handleDeleteClick = async () => {
     // Exibe a mensagem de confirmação
     const shouldDelete = window.confirm('Tem certeza que deseja deletar este automóvel?');
@@ -45,7 +41,7 @@ export default function Descricao() {
   
 
   return (
-    <div className=" main_bg overflow-hidden">
+    <div className="bg-gradient-to-br overflow-hidden">
       <div className="h-[300px] overflow-hidden relative z-10">
         {/* Imagem de fundo com opacidade mais baixa */}
         <img
@@ -57,7 +53,7 @@ export default function Descricao() {
         <img src={data.imageUrl} alt="Automóvel" className="absolute top-0 left-0 sm:w-auto max-w-[600px] h-auto object-cover opacity-100" />
       </div>
       {/* Informações do automovel*/}
-      <main className='paddingX main_bg'>
+      <main className='paddingX'>
         <div className={`-mt-24 pb-14 paddingX relative second_bg`}>
           <div className='flex flex-wrap justify-around'>
             {/* Card 1 - Detalhes do automovel*/}
@@ -77,7 +73,7 @@ export default function Descricao() {
             </div>
           </div>
           {/* botões */}
-          <div className="flex items-center justify-between bg-black-200 p-4 md:mx-7 rounded-md shadow-md">
+          <div className="flex items-center justify-between third_bg p-4 md:mx-7 rounded-md shadow-md">
             <div
               className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             >

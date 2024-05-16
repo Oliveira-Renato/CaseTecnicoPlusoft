@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import TextField from '@mui/material/TextField';
 import { useEffect, useState } from "react";
 import API from "../services/api.js";
+import { heroImg } from "../assets/index.js";
 
 export default function Cadastrar() {
   const [formData, setFormData] = useState({
@@ -45,8 +46,13 @@ export default function Cadastrar() {
 
   return (
     <form onSubmit={handleSalvar} className=" main_bg overflow-hidde">
-      <div className="h-[300px] overflow-hidden relative z-10 flex justify-center items-center bg-gray-50 w-full">
+      <div className="h-[300px] overflow-hidden relative z-10 flex justify-center bg-gradient-to-br items-center ">
         {/* Imagem de fundo com opacidade mais baixa */}
+        <img
+          src={heroImg}
+          alt="Automóvel"
+          className="absolute top-0 left-0 w-full h-full object-cover opacity-8 0"
+        />
         <div className=" z-20 bg-gray-200 px-4 py-2 w-auto">
           {/* Campo de entrada para a URL da imagem */}
           <TextField
@@ -60,7 +66,7 @@ export default function Cadastrar() {
         </div>
       </div>
       {/* Informações do automovel*/}
-      <main className='paddingX main_bg'>
+      <main className='paddingX bg-gradient-to-br'>
         <div className={`-mt-24 pb-14 paddingX relative  bg-gray-100`}>
           <div className='flex flex-wrap justify-around'>
             {/* Card 1 - Detalhes do automovel*/}
@@ -111,7 +117,7 @@ export default function Cadastrar() {
             </div>
           </div>
           {/* Botões de ação (Salvar e Cancelar) */}
-          <div className="flex items-center justify-between bg-gray-200 p-4 md:mx-7 rounded-md shadow-md">
+          <div className="flex items-center justify-between second_bg p-4 md:mx-7 rounded-md shadow-md">
             <button
               type="submit"
               className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"

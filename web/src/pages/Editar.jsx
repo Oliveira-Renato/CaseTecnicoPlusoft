@@ -76,7 +76,7 @@ export default function Editar() {
         </div>
       </div>
       {/* Informações do automovel*/}
-      <main className='paddingX main_bg'>
+      <main className='paddingX red_gradient'>
         <div className={`-mt-24 pb-14 paddingX relative  bg-gray-100`}>
           <div className='flex flex-wrap justify-around'>
             {/* Card 1 - Detalhes do automovel*/}
@@ -126,7 +126,7 @@ export default function Editar() {
             </div>
           </div>
           {/* Botões de ação (Salvar e Cancelar) */}
-          <div className="flex items-center justify-between bg-gray-200 p-4 md:mx-7 rounded-md shadow-md">
+          <div className="flex items-center justify-between third_bg p-4 md:mx-7 rounded-md shadow-md">
             <button
               className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               onClick={handleSalvar}

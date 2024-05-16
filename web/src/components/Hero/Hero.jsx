@@ -3,7 +3,7 @@ import { heroImg } from "../../assets/index";
 
 export default function Hero() {
   return (
-    <section className="padding flex flex-wrap p-8 h-svh bg-gradient-to-r from-blue-500 to-purple-600 overflow-hidden">
+    <section className="padding flex flex-wrap p-8 h-svh bg-gradient-to-br overflow-hidden">
       <main className="flex items-center w-full lg:w-1/2">
         <div className="max-w-2xl mb-8">
           <h1 className="text-4xl font-bold leading-snug tracking-tight text-white lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight">

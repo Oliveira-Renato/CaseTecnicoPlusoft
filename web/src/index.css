@@ -20,17 +20,23 @@ section {
 }
 
 .main_bg {
-  background: #000000;
+  background: #fff;
 }
 .second_bg {
-  background: #111;
+  background-image: linear-gradient(to bottom right, #2563eb, #9f7aea);
 }
 .third_bg {
-  background: #212121;
+  background: #9f7aea;
 }
 .gray-gradient {
   background: linear-gradient(to bottom, #000000, #111, #212121);
 }
+
+.bg-gradient-to-br {
+  /* background-color: #2563eb;  */
+  background-image: linear-gradient(to bottom right, #2563eb, #9f7aea); /* Gradiente diagonal de azul para roxo */
+}
+
 .red_100 {
   color: #d00000;
 }
@@ -45,8 +51,14 @@ section {
   background: rgba(208, 0, 0, 0.8);
 }
 
+.bg-gradient-to-pink {
+  background-color: #d81b60; /* Cor inicial (rosa) */
+  background-image: linear-gradient(to right, #d81b60, #8e24aa); /* Gradiente de rosa para lilás */
+}
+
 .red_gradient {
-  background: linear-gradient(to bottom, #d00000, #9d0208, #6a040f);
+  background-color: #2563eb; /* Cor inicial (azul) */
+  background-image: linear-gradient(to bottom right, #2563eb, #9f7aea);
 }
 .green-pink-gradient {
   background: "#f5af19";
@@ -126,7 +138,6 @@ section {
 }
 
 .sectionHeadText {
-  color: #9d0208;
   font-weight: 900;
   font-size: 60px;
 

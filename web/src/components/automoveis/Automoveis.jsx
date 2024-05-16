@@ -23,6 +23,7 @@ const ServiceCard = ({ modelo, urlImg, ...props }) => {
 
 export default function Automoveis() {
   const [data, setData] = useState([]); // Estado para armazenar os dados dos automovels
+  const [searchTerm, setSearchTerm] = useState(''); // Estado para armazenar o termo de pesquisa
 
   // Efeito para buscar os dados dos automovels ao montar o componente
   useEffect(() => {
@@ -39,23 +40,44 @@ export default function Automoveis() {
     }
   };
 
+  // Função para lidar com a alteração do termo de pesquisa
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  // Filtra os automovéis com base no termo de pesquisa
+  const filteredData = data.filter((automovel) => {
+    return automovel.modelo.toLowerCase().includes(searchTerm.toLowerCase());
+  });
+
   return (
-    <section className='padding' id="lista">
+    <section className='padding bg-gradient-to-br' id="lista">
       <div>
         {/* Título da seção */}
-        <h2 className={"sectionHeadText"}>Confira nossos automovels</h2>
+        <h2 className={"sectionHeadText text-gray-50"}>Confira nossa garagem virtual</h2>
       </div>
       <p className='mt-4 sectionSubText'>
         {/* Descrição da seção */}
-        Não perca as ofertas em nossos de automovels!
+        Explore, crie, edite e até mesmo apague se quiser. Divirta-se!
       </p>
 
-      <div className='flex flex-wrap gap-10'>
-        {/* Mapeia os dados dos automovels e renderiza um link para cada automovel */}
-        {data.map((automovel, index) => (
-          <Link key={automovel.id} to={`/descricao/${automovel.id}`}> {/* Link para os detalhes do automovel */}
-            {/* Componente de cartão de serviço para cada automovel */}
-            <ServiceCard key={automovel.id} index={index} urlImg={automovel.imageUrl} title={automovel.marca} {...automovel} />
+      {/* Campo de pesquisa por modelo */}
+      <div className="mt-8">
+        <input
+          type="text"
+          placeholder="Pesquisar por modelo..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+          className="border border-gray-300 rounded-md px-4 py-2 w-full max-w-md"
+        />
+      </div>
+
+      <div className='flex flex-wrap gap-10 mt-8'>
+        {/* Mapeia os dados dos automóveis filtrados e renderiza um link para cada automóvel */}
+        {filteredData.map((automovel, index) => (
+          <Link key={automovel.id} to={`/descricao/${automovel.id}`}> {/* Link para os detalhes do automóvel */}
+            {/* Componente de cartão de serviço para cada automóvel */}
+            <ServiceCard key={automovel.id} index={index} urlImg={automovel.imageUrl} modelo={automovel.modelo} />
           </Link>
         ))}
       </div>
