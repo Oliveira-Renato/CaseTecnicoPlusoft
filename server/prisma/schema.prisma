@@ -14,7 +14,7 @@ model Automovel {
   id               Int      @id @default(autoincrement())
   marca            String
   modelo           String
-  ano              Int
+  ano              String?
   descricaoPessoal String?
   imageUrl         String?
   createdAt        DateTime @default(now())

@@ -2,7 +2,7 @@
 interface AutomovelRequest {
   marca: string;
   modelo: string;
-  ano: number;
+  ano: string;
   descricaoPessoal?: string;
   imageUrl?: string;
 }
