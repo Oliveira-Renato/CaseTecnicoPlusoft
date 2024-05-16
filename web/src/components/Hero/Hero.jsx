@@ -1,6 +1,7 @@
-import { hero } from "../../assets/index";
+import { Link } from "react-router-dom";
+import { heroImg } from "../../assets/index";
 
-const Hero = () => {
+export default function Hero() {
   return (
     <section className="padding flex flex-wrap p-8 h-svh bg-gradient-to-r from-blue-500 to-purple-600 overflow-hidden">
       <main className="flex items-center w-full lg:w-1/2">
@@ -12,23 +13,20 @@ const Hero = () => {
             Crie, explore e personalize seu automóvel dos sonhos.
           </p>
           <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener"
+            <Link to={"/lista"}
               className="px-8 py-4 text-lg font-medium text-center text-blue-600 bg-white rounded-md shadow-lg hover:bg-gray-100"
             >
               Lista de Automóveis
-            </a>
+            </Link>
           </div>
         </div>
       </main>
       {/* imagem */}
       <aside className="flex items-center justify-center w-full lg:w-1/2 relative">
-        <div className="absolute overflow-hidden flex justify-end items-center right-[-11%] top-0">
+        <div className="absolute overflow-hidden flex justify-end items-center right-[-11%] top-[-12%]">
           <img
             className="min-w-0 min-h-full max-w-full max-h-full object-contain w-full"
-            src={hero}
+            src={heroImg}
             alt="Imagem de destaque de automóvel"
           />
         </div>
@@ -36,5 +34,3 @@ const Hero = () => {
     </section>
   );
 };
-
-export default Hero;

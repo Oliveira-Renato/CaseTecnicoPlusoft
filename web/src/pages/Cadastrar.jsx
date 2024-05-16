@@ -29,8 +29,7 @@ export default function Cadastrar() {
       console.log(retorno)
 
       // Redireciona para a tela inicial após o cadastro bem-sucedido
-      // Você pode substituir por uma rota específica, se necessário
-      //window.location.href = '/'; // Redireciona para a tela inicial (ou outra rota desejada)
+      window.location.href = '/'; 
     } catch (error) {
       console.error("Erro ao salvar dados:", error);
     }
@@ -45,7 +44,7 @@ export default function Cadastrar() {
   };
 
   return (
-    <form onSubmit={handleSalvar} className="mt-24 main_bg overflow-hidde">
+    <form onSubmit={handleSalvar} className=" main_bg overflow-hidde">
       <div className="h-[300px] overflow-hidden relative z-10 flex justify-center items-center bg-gray-50 w-full">
         {/* Imagem de fundo com opacidade mais baixa */}
         <div className=" z-20 bg-gray-200 px-4 py-2 w-auto">

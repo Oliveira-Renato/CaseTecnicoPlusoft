@@ -54,7 +54,7 @@ export default function Editar() {
   
 
   return (
-    <form className="mt-24 main_bg overflow-hidde">
+    <form className=" main_bg overflow-hidde">
       <div className="h-[300px] overflow-hidden relative z-10 flex justify-center items-center bg-gray-200">
         {/* Imagem de fundo com opacidade mais baixa */}
         <img

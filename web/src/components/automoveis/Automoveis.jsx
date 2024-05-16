@@ -40,7 +40,7 @@ export default function Automoveis() {
   };
 
   return (
-    <section className='padding'>
+    <section className='padding' id="lista">
       <div>
         {/* Título da seção */}
         <h2 className={"sectionHeadText"}>Confira nossos automovels</h2>
@@ -50,7 +50,7 @@ export default function Automoveis() {
         Não perca as ofertas em nossos de automovels!
       </p>
 
-      <div className='mt-20 flex flex-wrap gap-10'>
+      <div className='flex flex-wrap gap-10'>
         {/* Mapeia os dados dos automovels e renderiza um link para cada automovel */}
         {data.map((automovel, index) => (
           <Link key={automovel.id} to={`/descricao/${automovel.id}`}> {/* Link para os detalhes do automovel */}

@@ -3,17 +3,18 @@ import { Automoveis, Hero } from "./components"
 import Descricao from "./pages/Descricao";
 import Editar from "./pages/Editar";
 import Cadastrar from "./pages/Cadastrar";
+import DenseAppBar from "./components/NavBar";
 
 const App = () => {
   return (
     <BrowserRouter>
       <div className="relative z-0 bg-primary">
-        <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
-          <Hero />
-        </div>
+        <DenseAppBar />
+
         <Routes>
-          <Route path="/" element={<Automoveis />} />
+          <Route path="/" element={<Hero />} />
           <Route path="/cadastrar" element={<Cadastrar />} /> 
+          <Route path="/lista" element={<Automoveis />} /> 
           <Route path="/descricao/:id" element={<Descricao />} />
           <Route path="/editar/:id" element={<Editar />} /> 
         </Routes>

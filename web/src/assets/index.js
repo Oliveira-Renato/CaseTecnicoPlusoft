@@ -1,3 +1,3 @@
-import hero from "./hero.png";
+import heroImg from "./hero.png";
 
-export { hero };
+export { heroImg };

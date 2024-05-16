@@ -34,6 +34,9 @@ export default function Descricao() {
       try {
         // Chama a API para deletar o automóvel
         await API.delete(`automoveis/${id}`);
+
+        // Redireciona para a tela inicial após o cadastro bem-sucedido
+        window.location.href = '/'; 
       } catch (error) {
         console.log(error);
       }
@@ -42,7 +45,7 @@ export default function Descricao() {
   
 
   return (
-    <div className="mt-24 main_bg overflow-hidden">
+    <div className=" main_bg overflow-hidden">
       <div className="h-[300px] overflow-hidden relative z-10">
         {/* Imagem de fundo com opacidade mais baixa */}
         <img
@@ -61,7 +64,7 @@ export default function Descricao() {
             <div className="third_bg p-5 rounded-b-3xl w-full md:w-[50%] h-fit z-20 my-16">
               <p className="text-white font-bold text-[40px]">{data.modelo}</p>
               <div className="mt-1">
-                <p className="text-white tracking-wider text-[18px] border-2 w-fit">{data.marca}</p>
+                <p className="text-white tracking-wider text-[18px] border-2 w-fit p-2 mb-2">{data.marca}</p>
                 <p className="text-white font-medium text-[16px]">Ano : {data.ano}</p>
               </div>
             </div>
