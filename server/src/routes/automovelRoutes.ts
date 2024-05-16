@@ -6,6 +6,9 @@ async function automovelRoutes(app: FastifyInstance) {
   app.get('/automoveis', AutomovelController.listarAutomoveis);
 
   // Rota POST para criar um novo automóvel
+  app.get("/automoveis/:id", AutomovelController.infoAutomovel);
+
+  // Rota POST para criar um novo automóvel
   app.post("/automoveis", AutomovelController.cadastrarAutomovel);
 
   // Rota PUT para atualizar um automóvel existente

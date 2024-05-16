@@ -12,6 +12,20 @@ async function listarAutomoveis(req: FastifyRequest, res: FastifyReply) {
   }
 }
 
+async function infoAutomovel(req: FastifyRequest, res: FastifyReply) {
+  try {
+    // Extrai os dados do corpo da requisição e tipa com a interface AutomovelRequest
+    // Extrai o ID e os dados do corpo da requisição
+    const { id } = req.params as ParamsRequest;
+
+    const automovel = await AutomovelService.infoAutomovel(Number(id));
+    res.send(automovel);
+  } catch (error) {
+    // Enviar uma resposta de erro 
+    res.status(500).send({ error: 'Erro interno do servidor' });
+  }
+}
+
 async function cadastrarAutomovel(req: FastifyRequest, res: FastifyReply) {
   try {
     // Extrai os dados do corpo da requisição e tipa com a interface AutomovelRequest
@@ -61,6 +75,7 @@ async function deleteAutomovel(req: FastifyRequest, res: FastifyReply) {
 
 export default { 
   listarAutomoveis,
+  infoAutomovel,
   cadastrarAutomovel,
   atualizarAutomovel,
   deleteAutomovel

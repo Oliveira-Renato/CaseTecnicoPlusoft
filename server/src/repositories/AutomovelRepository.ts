@@ -2,9 +2,19 @@ import { prisma } from "../lib/prisma";
 import { AutomovelRequest } from "../types/types";
 
 async function listarTodos() {
-  try {
-    console.log("GET repositories /automoveis");
+  try {;
     return await prisma.automovel.findMany();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function infoAutomovel(id: number) {
+  try {
+    const automovel = await prisma.automovel.findUnique({
+      where: {id}
+    });
+    return automovel;
   } catch (error) {
     console.log(error);
   }
@@ -45,6 +55,7 @@ async function deleteAutomovel(id: number) {
 
 export default { 
   listarTodos,
+  infoAutomovel,
   cadastrarAutomovel,
   atualizarAutomovel,
   deleteAutomovel

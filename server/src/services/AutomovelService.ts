@@ -9,6 +9,14 @@ async function listarTodos() {
   }
 }
 
+async function infoAutomovel(id: number) {
+  try {
+    return await AutomovelRepository.infoAutomovel(id);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 async function cadastrarAutomovel(data: AutomovelRequest) {
   try {
     console.log("POST SERVICES /automoveis");
@@ -36,6 +44,7 @@ async function deleteAutomovel(id: number) {
 
 export default { 
   listarTodos,
+  infoAutomovel,
   cadastrarAutomovel,
   atualizarAutomovel,
   deleteAutomovel
