@@ -15,22 +15,14 @@ export default function Cadastrar() {
 
   const handleSalvar = async (e) => {
     e.preventDefault(); // Evita o comportamento padrão de envio do formulário]
-    // Converte o campo "ano" para um número
-    const anoNumerico = Number(formData.ano);
-
-    // Atualiza o formData com o ano convertido para numérico
-    const formDataAtualizado = {
-      ...formData,
-      ano: anoNumerico,
-    };
-
+    
     try {
       // Faz uma requisição POST para a rota 'automoveis' com os dados do formulário
-      const retorno = await API.post('automoveis', formDataAtualizado);
+      const retorno = await API.post('automoveis', formData);
       console.log(retorno)
 
       // Redireciona para a tela inicial após o cadastro bem-sucedido
-      window.location.href = '/'; 
+      window.location.href = '/lista'; 
     } catch (error) {
       console.error("Erro ao salvar dados:", error);
     }
@@ -95,7 +87,6 @@ export default function Cadastrar() {
                   value={formData.ano}
                   onChange={handleInputChange}
                   variant="filled"
-                  type="number"
                 />
               </div>
             </div>

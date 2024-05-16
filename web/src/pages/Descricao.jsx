@@ -32,7 +32,7 @@ export default function Descricao() {
         await API.delete(`automoveis/${id}`);
 
         // Redireciona para a tela inicial após o cadastro bem-sucedido
-        window.location.href = '/'; 
+        window.location.href = '/lista'; 
       } catch (error) {
         console.log(error);
       }
