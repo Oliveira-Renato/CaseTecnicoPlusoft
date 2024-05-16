@@ -19,7 +19,17 @@ async function cadastrarAutomovel(data: AutomovelRequest) {
   }
 }
 
+async function atualizarAutomovel(id: number, data: AutomovelRequest) {
+  try {
+    console.log("PUT SERVICES /automoveis");
+    return await AutomovelRepository.atualizarAutomovel(id, data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export default { 
   listarTodos,
-  cadastrarAutomovel 
+  cadastrarAutomovel,
+  atualizarAutomovel
 };

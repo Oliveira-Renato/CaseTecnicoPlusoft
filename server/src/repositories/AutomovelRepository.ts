@@ -19,7 +19,19 @@ async function cadastrarAutomovel(data: AutomovelRequest) {
   }
 }
 
+async function atualizarAutomovel(id: number , data: AutomovelRequest) {
+  try {
+    const automovelAtualizado = await prisma.automovel.update({
+      where: { id },
+      data,
+    });
+    return automovelAtualizado;
+  } catch (error) {
+    throw new Error("Não foi possível atualizar o automóvel");
+  }
+}
 export default { 
   listarTodos,
-  cadastrarAutomovel
+  cadastrarAutomovel,
+  atualizarAutomovel
 };

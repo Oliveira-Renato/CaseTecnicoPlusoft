@@ -23,36 +23,22 @@ export async function automovelRoutes(app: FastifyInstance) {
   // Rota POST para criar um novo automóvel
   app.post("/automoveis", AutomovelController.cadastrarAutomovel);
 
-  // // Rota PUT para atualizar um automóvel existente
-  // app.put("/automoveis/:id", async (req, res) => {
-  //   try {
-  //     const { id } = req.params as ParamsRequest;
-  //     const { marca, modelo, ano, descricaoPessoal, imageUrl } = req.body as AutomovelRequest;
+  // Rota PUT para atualizar um automóvel existente
+  app.put("/automoveis/:id", AutomovelController.atualizarAutomovel);
 
-  //     const automovelAtualizado = await prisma.automovel.update({
-  //       where: { id: parseInt(id) },
-  //       data: { marca, modelo, ano, descricaoPessoal, imageUrl },
-  //     });
+  // Rota DELETE para remover um automóvel
+  app.delete("/automoveis/:id", async (req, res) => {
+    try {
+      const { id } = req.params as ParamsRequest;
 
-  //     res.send(automovelAtualizado);
-  //   } catch (error) {
-  //     res.status(500).send({ error: "Erro ao atualizar automóvel" });
-  //   }
-  // });
+      await prisma.automovel.delete({
+        where: { id: parseInt(id) },
+      });
 
-  // // Rota DELETE para remover um automóvel
-  // app.delete("/automoveis/:id", async (req, res) => {
-  //   try {
-  //     const { id } = req.params as ParamsRequest;
-
-  //     await prisma.automovel.delete({
-  //       where: { id: parseInt(id) },
-  //     });
-
-  //     // Retorna o status 204 para deleção bem-sucedida sem conteúdo no corpo da resposta
-  //     res.status(204).send();
-  //   } catch (error) {
-  //     res.status(500).send({ error: "Erro ao deletar automóvel" });
-  //   }
-  // });
+      // Retorna o status 204 para deleção bem-sucedida sem conteúdo no corpo da resposta
+      res.status(204).send();
+    } catch (error) {
+      res.status(500).send({ error: "Erro ao deletar automóvel" });
+    }
+  });
 }
