@@ -47,7 +47,8 @@ Bem-vindo ao VroomVibes, uma aplicação web para gerenciamento de uma garagem v
 
    - Execute `cd CaseTecnicoPlusoft/server` para entrar no diretório raiz.
    - Execute `npm install` ou `yarn install` no diretório do projeto para instalar as dependências.
-   - Crie um arquivo `.env` com as seguintes informações `DATABASE_URL="file:./dev.db"`. 
+   - Crie um arquivo `.env` na raiz do projeto com as seguintes informações `DATABASE_URL="file:./dev.db"`.
+   - Execute `npx prisma migrate dev` para criar as tabelas no banco de dados.
    - Execute `npm run dev` para rodar o servidor localmente.
 
 3. **Instalar Dependências Front-end:**
