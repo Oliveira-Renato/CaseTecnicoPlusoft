@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Automoveis, Hero } from "./components"
 import Descricao from "./pages/Descricao";
+import Editar from "./pages/Editar";
+import Cadastrar from "./pages/Cadastrar";
 
 const App = () => {
   return (
@@ -11,8 +13,9 @@ const App = () => {
         </div>
         <Routes>
           <Route path="/" element={<Automoveis />} />
+          <Route path="/cadastrar" element={<Cadastrar />} /> 
           <Route path="/descricao/:id" element={<Descricao />} />
-          {/* <Route path="/maps/:storeName" element={} /> */}
+          <Route path="/editar/:id" element={<Editar />} /> 
         </Routes>
       </div>
     </BrowserRouter>

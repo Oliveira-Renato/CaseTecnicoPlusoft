@@ -26,9 +26,20 @@ export default function Descricao() {
 
   };
 
-  const handleDeleteClick = () => {
-
+  const handleDeleteClick = async () => {
+    // Exibe a mensagem de confirmação
+    const shouldDelete = window.confirm('Tem certeza que deseja deletar este automóvel?');
+  
+    if (shouldDelete) {
+      try {
+        // Chama a API para deletar o automóvel
+        await API.delete(`automoveis/${id}`);
+      } catch (error) {
+        console.log(error);
+      }
+    }
   };
+  
 
   return (
     <div className="mt-24 main_bg overflow-hidden">
@@ -64,12 +75,13 @@ export default function Descricao() {
           </div>
           {/* botões */}
           <div className="flex items-center justify-between bg-black-200 p-4 md:mx-7 rounded-md shadow-md">
-            <button
+            <div
               className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              onClick={handleEditClick}
             >
-              Editar
-            </button>
+              <Link to={`/editar/${id}`}>
+                Editar
+              </Link>
+            </div>
             <button
               className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 ml-2"
               onClick={handleDeleteClick}
