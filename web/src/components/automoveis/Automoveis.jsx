@@ -3,18 +3,18 @@ import { Link } from 'react-router-dom';
 import API from '../../services/api.js'; 
 
 // Componente de cartão de serviço
-const ServiceCard = ({ title, icon }) => {
+const ServiceCard = ({ modelo, urlImg, ...props }) => {
   return (
     <div className='xs:w-[250px] w-full cursor-pointer service_card'>
       {/* Card do automovel */}
       <div className='w-full red_gradient p-[1px] rounded-[20px] shadow-card overflow-hidden'>
         <div className='bg-black-100 rounded-t-[20px]'>
           {/* Imagem do automovel  */}
-          <img src={icon} alt="icon" className='w-full h-[280px] object-cover' />
+          <img src={urlImg} alt="icon" className='w-full h-[280px] object-cover' />
         </div>
         <div className='bg-black-100 rounded-b-[20px] py-3 px-6'>
           {/* Título do automovel */}
-          <h3 className='text-white text-[20px] font-bold text-center overflow-hidden whitespace-nowrap'>{title}</h3>
+          <h3 className='text-white text-[20px] font-bold text-center overflow-hidden whitespace-nowrap'>{modelo}</h3>
         </div>
       </div>
     </div>
@@ -52,10 +52,10 @@ export default function Automoveis() {
 
       <div className='mt-20 flex flex-wrap gap-10'>
         {/* Mapeia os dados dos automovels e renderiza um link para cada automovel */}
-        {data.map((game, index) => (
-          <Link key={game.id} to={`/details/${game.id}`}> {/* Link para os detalhes do automovel */}
+        {data.map((automovel, index) => (
+          <Link key={automovel.id} to={`/descricao/${automovel.id}`}> {/* Link para os detalhes do automovel */}
             {/* Componente de cartão de serviço para cada automovel */}
-            <ServiceCard key={game.id} index={index} icon={game.imagem} title={game.nome} {...game} />
+            <ServiceCard key={automovel.id} index={index} urlImg={automovel.imageUrl} title={automovel.marca} {...automovel} />
           </Link>
         ))}
       </div>
