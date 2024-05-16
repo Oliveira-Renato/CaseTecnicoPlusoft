@@ -2,7 +2,7 @@ import AutomovelService from "../services/AutomovelService";
 import { FastifyRequest, FastifyReply } from "fastify";
 import { AutomovelRequest, ParamsRequest } from "../types/types";
 
-async function listarAutomoveis(res: FastifyReply) {
+async function listarAutomoveis(req: FastifyRequest, res: FastifyReply) {
   try {
     const automoveis = await AutomovelService.listarTodos();
     res.send(automoveis);
